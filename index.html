@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Valentine Untuk Kamu 💕</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Comic Sans MS', 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ff5f9e, #ffc371);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 30px;
+  width: 330px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  animation: pop 1s ease;
+}
+
+@keyframes pop {
+  from {transform: scale(0.5); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
+
+h1 {
+  color: #ff3f7f;
+}
+
+button {
+  background: #ff3f7f;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 30px;
+  color: white;
+  font-size: 1em;
+  margin: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff174f;
+}
+
+#message {
+  margin-top: 15px;
+  color: #444;
+  font-size: 1.05em;
+}
+
+img {
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 15px;
+  display: none;
+}
+
+.heart {
+  position: absolute;
+  font-size: 20px;
+  animation: fall 6s linear infinite;
+}
+
+@keyframes fall {
+  0% {transform: translateY(-10vh); opacity: 1;}
+  100% {transform: translateY(110vh); opacity: 0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Hai Kamu 💖</h1>
+  <p>Pilih satu ya… awas terbang 😳👇</p>
+
+  <button onclick="opsi1()">💖 Aku Cuyunk Bungut Ma Kamu</button>
+  <button onclick="opsi2()">😆 Aku tangen Bungut</button>
+  <button onclick="opsi3()">💍 Pertanyaan gila</button>
+
+  <div id="message"></div>
+  <img id="photo" src="Foto-manda.jpg">
+</div>
+
+<audio id="song">
+  <source src="lagu-romantis.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function showAll(text) {
+  document.getElementById("message").innerHTML = text;
+  document.getElementById("photo").style.display = "block";
+  document.getElementById("song").play();
+}
+
+function opsi1() {
+  showAll("Aku sayang kamu 💕<br>bukan cuma hari ini,<br>tapi tiap hari, tiap jam, tiap detik 😭💖");
+}
+
+function opsi2() {
+  showAll("Aku kangen kamu 😆💗<br>Kangen yang bikin tenyum cendili kayak freak 🤭");
+}
+
+function opsi3() {
+  showAll("Pertanyaannya cuma satu 💍<br><b>Mau nggak sama aku terus?</b> 😳💕");
+}
+
+// hujan hati lebay
+setInterval(() => {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = ["💖","💘","💕","💗"][Math.floor(Math.random()*4)];
+  h.style.left = Math.random()*100 + "vw";
+  h.style.fontSize = Math.random()*20 + 15 + "px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},300);
+</script>
+
+</body>
+</html>
